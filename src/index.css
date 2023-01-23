@@ -69,3 +69,7 @@ header {
 .navbar-nav a.active {
   color: var(--primary);
 }
+
+main > .container {
+  padding: 3rem 0;
+}

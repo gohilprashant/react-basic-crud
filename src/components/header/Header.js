@@ -1,20 +1,20 @@
-import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
 
 const Header = () => {
   return (
     <header>
       <nav className='navbar navbar-expand-lg navbar-dark'>
         <div className='container'>
-          <a className='navbar-brand' href='/'>
+          <Link className='navbar-brand' to='/'>
             ReactJs
-          </a>
+          </Link>
           <div className='navbar-nav'>
-            <a className='nav-link active' href='/'>
+            <NavLink className='nav-link' to='/'>
               Home
-            </a>
-            <a className='nav-link' href='/post/add'>
+            </NavLink>
+            <NavLink className='nav-link' to='/posts/add'>
               Add Post
-            </a>
+            </NavLink>
           </div>
         </div>
       </nav>

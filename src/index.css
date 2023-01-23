@@ -20,9 +20,22 @@
   --gutter-x: 1.5rem;
   --gutter-y: 0;
 }
-
+* {
+  box-sizing: border-box;
+}
 a {
   text-decoration: none;
+  color: var(--link-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0 0 1rem 0;
 }
 
 body {
@@ -71,5 +84,37 @@ header {
 }
 
 main > .container {
-  padding: 3rem 0;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.card {
+  padding: 1.5rem;
+  padding-bottom: 0;
+  background: #1c1c27;
+}
+
+.card-body {
+  margin-bottom: 1.5rem;
+}
+.card-body p {
+  margin-bottom: 0;
+}
+
+.card-title {
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: #c1bcbc;
+  font-size: 2rem;
+}
+
+.card-text {
+  color: #adadad;
+}
+
+.card-category {
+  margin: 0 -1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
+  padding: 1rem 1.5rem 1rem 1.5rem;
+  font-size: 0.8rem;
 }

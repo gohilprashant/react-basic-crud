@@ -12,7 +12,14 @@ const Home = () => {
   return (
     <div>
       <h2>Home</h2>
-      <PostCard post={post} />
+      <div className='card-row'>
+        <PostCard post={post} />
+        <PostCard post={post} />
+        <PostCard post={post} />
+        <PostCard post={post} />
+        <PostCard post={post} />
+        <PostCard post={post} />
+      </div>
     </div>
   );
 };

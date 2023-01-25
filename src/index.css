@@ -20,9 +20,11 @@
   --gutter-x: 1.5rem;
   --gutter-y: 0;
 }
+
 * {
   box-sizing: border-box;
 }
+
 a {
   text-decoration: none;
   color: var(--link-color);
@@ -36,6 +38,15 @@ h5,
 h6,
 p {
   margin: 0 0 1rem 0;
+}
+
+.container,
+.container-fluid {
+  width: 100%;
+  padding-right: var(--gutter-x, 0.75rem);
+  padding-left: var(--gutter-x, 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
 }
 
 body {
@@ -88,6 +99,12 @@ main > .container {
   padding-bottom: 3rem;
 }
 
+.card-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gutter-x);
+}
+
 .card {
   padding: 1.5rem;
   padding-bottom: 0;
@@ -117,4 +134,33 @@ main > .container {
   border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
   padding: 1rem 1.5rem 1rem 1.5rem;
   font-size: 0.8rem;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+  .card-row {
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
 }

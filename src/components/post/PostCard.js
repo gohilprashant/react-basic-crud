@@ -1,4 +1,6 @@
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+
 const PostCard = ({ post }) => {
   return (
     <div className='card'>
@@ -15,6 +17,13 @@ const PostCard = ({ post }) => {
   );
 };
 
-PostCard.prototype = {};
+PostCard.propTypes = {
+  post: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+  }),
+};
 
 export default PostCard;

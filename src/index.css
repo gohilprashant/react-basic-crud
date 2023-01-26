@@ -6,6 +6,7 @@
   --primary-rgb: 34, 169, 227;
   --secondary: #6c757d;
   --secondary-rgb: 108, 117, 125;
+  --danger: #dc3545;
   --body-bg: #05050b;
   --card-bg: #1c1c27;
   --form-bg: #111119;
@@ -205,6 +206,7 @@ textarea {
   resize: vertical;
   height: 7rem;
 }
+
 input::placeholder,
 textarea::placeholder {
   color: var(--secondary);
@@ -218,6 +220,12 @@ textarea::placeholder {
 
 form button {
   min-width: 12rem;
+}
+
+.invalid-error {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--danger);
 }
 
 @media (min-width: 576px) {

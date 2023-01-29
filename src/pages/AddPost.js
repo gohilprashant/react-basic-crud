@@ -61,7 +61,7 @@ const AddPost = () => {
           ))}
         </select>
       </div>
-      <button type='submit' className='btn-primary'>
+      <button type='submit' className='btn btn-primary'>
         Submit Form
       </button>
     </form>

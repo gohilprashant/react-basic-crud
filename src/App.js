@@ -19,7 +19,7 @@ function App() {
         </main>
         <ToastContainer />
       </div>
-      <ReactQueryDevtools initialIsOpen={false} />
+      <ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
     </QueryClientProvider>
   );
 }

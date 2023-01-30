@@ -1,5 +1,7 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 import PostCard from '../components/post/PostCard';
+import { useGetPosts } from '../services/useGetPosts';
 
 const post = {
   id: '5903abf4-c73b-4758-a3ef-f255b8aa7f0f',
@@ -9,16 +11,23 @@ const post = {
 };
 
 const Home = () => {
+  const { data, isLoading, isError } = useGetPosts();
+
+  if (isLoading) {
+    return <h2>Loading....</h2>;
+  }
+
+  if (!isLoading && isError) {
+    toast.error('Something went wrong please try again');
+    return <h2>Home</h2>;
+  }
+
   return (
     <div>
-      <h2>Home</h2>
       <div className='card-row'>
-        <PostCard post={post} />
-        <PostCard post={post} />
-        <PostCard post={post} />
-        <PostCard post={post} />
-        <PostCard post={post} />
-        <PostCard post={post} />
+        {data.map((post) => (
+          <PostCard key={post.id} post={post} />
+        ))}
       </div>
     </div>
   );

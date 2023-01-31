@@ -14,18 +14,18 @@ const AddPost = () => {
   const { title, detail, category } = formData;
 
   const updateFormData = (e) => {
-    setFormData({ [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const validate = () => {
     const errObj = {};
-    if (!title.trim()) {
+    if (!title || !title.trim()) {
       errObj.title = 'Title is required';
     } else if (title.length < 3) {
       errObj.title = 'Title must be at least 3 characters long';
     }
 
-    if (!detail.trim()) {
+    if (!detail || !detail.trim()) {
       errObj.detail = 'Detail is required';
     } else if (detail.length < 20) {
       errObj.detail = 'Detail must be at least 40 characters long';
@@ -36,7 +36,9 @@ const AddPost = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors(validate());
-    console.log(formData);
+    if (!errors) {
+      console.log('Clear');
+    }
   };
 
   return (

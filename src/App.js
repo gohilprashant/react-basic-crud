@@ -1,11 +1,9 @@
 import Header from './components/header/Header';
 import AppRouter from './router/AppRouter';
 import { ToastContainer } from 'react-toastify';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
-
-// Create a client
-const queryClient = new QueryClient();
+import { queryClient } from './services/queryConfig';
 
 function App() {
   return (

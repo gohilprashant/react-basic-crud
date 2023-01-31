@@ -5,4 +5,6 @@ const getPostById = (id) => {
   return axios.get(`/api/posts/${id}`);
 };
 
-export const useGetPostById = (id) => useQuery(['post', id], () => getPostById(id), { select: (data) => data.data });
+export const useGetPostById = (id) => {
+  return useQuery(['post', id], () => getPostById(id), { select: (data) => data.data });
+};

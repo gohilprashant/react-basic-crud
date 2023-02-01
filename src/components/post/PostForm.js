@@ -1,4 +1,3 @@
-import React from 'react';
 import { categoriesData } from '../../utils/defaultValues';
 
 const PostForm = ({ isLoading, formData, handleChange, handleSubmit, errors }) => {

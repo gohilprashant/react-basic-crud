@@ -1,10 +1,11 @@
 import React from 'react';
-import { Navigate, useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useGetPostById } from '../services/useGetPostById';
 
 const PostDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const { data, isLoading, isError } = useGetPostById(id);
 
@@ -17,6 +18,10 @@ const PostDetail = () => {
     return <Navigate to={'/'} />;
   }
 
+  const handleUpdate = () => {
+    navigate(`/posts/update/${id}`);
+  };
+
   return (
     <div className='card'>
       <div className='card-body'>
@@ -27,7 +32,9 @@ const PostDetail = () => {
         <span>Category: {data.category}</span>
       </div>
       <div className='card-actions'>
-        <button className='btn btn-info'>Edit</button>
+        <button className='btn btn-info' onClick={handleUpdate}>
+          Edit
+        </button>
         <button className='btn btn-danger'>Delete</button>
       </div>
     </div>

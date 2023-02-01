@@ -1,27 +1,11 @@
-import { useEffect, useState } from 'react';
-import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import { useState } from 'react';
+import { Navigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { useAddPost } from '../services/useAddPost';
+import PostForm from '../components/post/PostForm';
 import { useGetPostById } from '../services/useGetPostById';
-
-const categoriesData = [
-  { key: 'Sports', value: 'Sports' },
-  { key: 'Grocery', value: 'Grocery' },
-  { key: 'Automotive', value: 'Automotive' },
-  { key: 'Music', value: 'Music' },
-  { key: 'Tools', value: 'Tools' },
-  { key: 'Shoes', value: 'Shoes' },
-  { key: 'Beauty', value: 'Beauty' },
-  { key: 'Movies', value: 'Movies' },
-  { key: 'Kids', value: 'Kids' },
-  { key: 'Electronics', value: 'Electronics' },
-  { key: 'Games', value: 'Games' },
-  { key: 'Clothing', value: 'Clothing' },
-];
 
 const UpdatePost = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
 
   const { data: curPost, isLoading: curPostIsLoading, isError: curPostIsError } = useGetPostById(id);
 
@@ -66,32 +50,13 @@ const UpdatePost = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className='post-form'>
-      {curPostIsLoading && <h2>Loading....</h2>}
-      <div className='form-group'>
-        <label htmlFor='postTitle'>Title</label>
-        <input type='text' id='postTitle' name='title' value={title} onChange={updateFormData} placeholder='Title' />
-        {errors.title && <div className='invalid-error'>{errors.title}</div>}
-      </div>
-      <div className='form-group'>
-        <label htmlFor='postDetail'>Detail</label>
-        <textarea id='postDetail' name='detail' value={detail} onChange={updateFormData} placeholder='Lorem Ipsum...' />
-        {errors.detail && <div className='invalid-error'>{errors.detail}</div>}
-      </div>
-      <div className='form-group'>
-        <label htmlFor='postCategory'>Category</label>
-        <select name='category' id='postCategory' value={category} onChange={updateFormData}>
-          {categoriesData.map((c) => (
-            <option value={c.key} key={c.key}>
-              {c.value}
-            </option>
-          ))}
-        </select>
-      </div>
-      <button type='submit' className='btn btn-primary'>
-        Submit Form
-      </button>
-    </form>
+    <PostForm
+      isLoading={curPostIsLoading}
+      formData={formData}
+      handleChange={updateFormData}
+      handleSubmit={handleSubmit}
+      errors={errors}
+    />
   );
 };
 

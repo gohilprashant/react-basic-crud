@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const usePostForm = (initialValues) => {
+const usePostForm = (initialValues = { title: '', detail: '', cateogry: 'Sports' }) => {
   const [formData, setFormData] = useState(initialValues);
   const [errors, setErrors] = useState({});
   const { title, detail } = formData;
@@ -25,7 +25,7 @@ const usePostForm = (initialValues) => {
     return errObj;
   };
 
-  return { formData, updateFormData, validate, errors, setErrors };
+  return { formData, setFormData, updateFormData, validate, errors, setErrors };
 };
 
 export default usePostForm;

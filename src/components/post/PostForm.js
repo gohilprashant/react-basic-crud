@@ -4,7 +4,6 @@ const PostForm = ({ isLoading, formData, handleChange, handleSubmit, errors }) =
   const { title, detail, category } = formData;
   return (
     <form onSubmit={handleSubmit} className='post-form'>
-      {isLoading && <h2>Loading....</h2>}
       <div className='form-group'>
         <label htmlFor='postTitle'>Title</label>
         <input type='text' id='postTitle' name='title' value={title} onChange={handleChange} placeholder='Title' />

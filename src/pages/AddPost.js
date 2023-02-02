@@ -22,6 +22,10 @@ const AddPost = () => {
     }
   };
 
+  if (isLoading) {
+    return <h2>Loading....</h2>;
+  }
+
   if (!isLoading && isError) {
     toast.error('Something went wrong please try again');
   }

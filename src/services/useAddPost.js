@@ -5,7 +5,7 @@ const addPost = (postData) => {
   return axios.post('/api/posts', postData);
 };
 
-export const useAddPost = (postData) => {
+export const useAddPost = () => {
   const queryClient = useQueryClient();
   return useMutation(addPost, {
     onSuccess: () => {

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const usePostForm = (initialValues = { title: '', detail: '', cateogry: 'Sports' }) => {
+const usePostForm = (initialValues = { title: '', detail: '', category: 'Sports' }) => {
   const [formData, setFormData] = useState(initialValues);
   const [errors, setErrors] = useState({});
   const { title, detail } = formData;
